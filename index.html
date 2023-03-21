@@ -29,7 +29,32 @@
         .dark.forground{
             background-color: var(--main-foreground-color-dark);
         }
+        .socialLink{
+            position: relative;
+            color:aliceblue;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 2px white solid;
+            min-width: 5em;
+            padding: 0.2em;
+            box-shadow: 0px 0px 10px black;
+            display:inline;
+            font-size: 1.2em;
+            margin: 5px;
+        }
 
+        .discord{
+            background-color: #6A5ACD;
+        }
+
+        .youtube{
+            background-color: #FF0000;
+        }
+
+        .github{
+            background-color: #4078c0;
+        }
+        
         body{
             margin: 0;
             padding: 0;
@@ -48,7 +73,7 @@
         }
         #header{
             box-shadow: 0px 0px 15px rgb(15, 6, 6);
-            position: absolute;
+            position: relative;
             padding: 10% 0px 10px 0px;
             border-bottom: solid 0.2em rgba(240, 248, 255, 0.37);
             border-top: solid 0.2em rgba(240, 248, 255, 0.37);
@@ -75,33 +100,68 @@
             filter: blur(3em) saturate(0.1);
         }
         #header>.imgWrap>img{
+            position: relative;
             display:block;
             margin:auto;
             box-shadow: 0px 0px 5px 2px black;
             border-radius: 100%;
             height:300px;
-            transition: 1s;
+            transition: transform 1s, margin-bottom 1s;
         }
         #header>h1{
             color:rgba(128, 9, 9, 1);
             text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+            position: relative;
+            display: block;
+            visibility: hidden;
+            opacity: 0;
         }
-        #header:hover>.imgWrap>img{
+        #header>span{
+            color:rgba(128, 9, 9, 1);
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+            position: relative;
+            visibility: visible;
+            opacity: 1;
+            display: inline;
+            transition: visibility 0.6s, opacity 0.2s linear;
+        }
+        #header:hover>.imgWrap>img, #header:active>.imgWrap>img{
             transform: scale(1.8);
                 box-shadow: 0px 0px 10px 5px rgb(48, 3, 3);
-                margin-bottom: 70px;
+
 
         }
-        #header:hover>.backdrop{
+        #header:hover>.backdrop, #header:active>.backdrop{
 
             filter: blur(2em) saturate(0.2);
         }
-
+        #header>.socialLink{
+            transition: visibility 1s, opacity 0.2s linear;
+            visibility: hidden;
+            opacity: 0;
+        }
+        
+        #header:hover>h1, #header:active>h1{
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+        #header:hover>span,  #header:active>span{
+            visibility: hidden;
+            opacity: 0;
+        }
+        #header:hover>.socialLink, #header:active>.socialLink{
+            display:inline;
+            opacity: 1;
+            visibility: visible;
+        }
         #content{
             overflow-y: scroll;
             position: absolute;
-            min-height: 1000px;
+
             width: 100%;
+            scrollbar-color: #2b2b2b #171717;
+            scrollbar-width: thin;
         }
         #footer{
             position: fixed;
@@ -114,7 +174,6 @@
         }
 
        
-        
     </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -128,12 +187,20 @@
     <div id="content">
         <div id="header" class="dark forground">
             <div class="backdrop"></div>
+
             <div class="imgWrap">
                 <img src="./tdt-logo.png" alt="TDT">
                 
-            </div><br><br>
+            </div><br><br><br><br><span>MASK YOUR FACE - TO BE YOURSELF</span><br><br><br>
         <h1>ThreeDifferentTribes</h1>
+        
+        <a href="https://discord.gg/y3vSx8pt4w" class="socialLink discord">Discord</a>
+        <a href="https://www.youtube.com/channel/UCkMhMcn0ei_ecWNKGCYRmAA" class="socialLink youtube">YouTube</a>
+        <a href="https://github.com/ThreeDifferentTribes" class="socialLink github">GitHub</a>
        </div>
-    <div id="footer" class="dark forground"> </div>
+       <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><span>test</span>
+    </div>
+       <div id="footer" class="dark forground"> 
+    </div>
 </body>
 </html>
