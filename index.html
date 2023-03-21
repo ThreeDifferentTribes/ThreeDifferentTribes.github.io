@@ -59,6 +59,7 @@
             margin: 0;
             padding: 0;
             overflow: hidden;
+            display: none;
         }
         #nav{
             position: fixed;
@@ -97,24 +98,25 @@
             height: 100%;
             top: 0;
             background-image: url("./loop-animation.gif");
-            filter: blur(3em) saturate(0.1);
+            filter: blur(2em) saturate(0.2);
         }
         #header>.imgWrap>img{
             position: relative;
             display:block;
             margin:auto;
-            box-shadow: 0px 0px 5px 2px black;
+            box-shadow: 0px 0px 10px 5px rgba(39, 2, 2, 0.87);
             border-radius: 100%;
             height:300px;
             transition: transform 1s, margin-bottom 1s;
+            transform: scale(1.8);
         }
         #header>h1{
             color:rgba(128, 9, 9, 1);
             text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
             position: relative;
             display: block;
-            visibility: hidden;
-            opacity: 0;
+            visibility: visible;
+            opacity: 1;
         }
         #header>span{
             color:rgba(128, 9, 9, 1);
@@ -125,20 +127,15 @@
             display: inline;
             transition: visibility 0.6s, opacity 0.2s linear;
         }
-        #header:hover>.imgWrap>img, #header:active>.imgWrap>img{
-            transform: scale(1.8);
-                box-shadow: 0px 0px 10px 5px rgb(48, 3, 3);
-
-
-        }
+        
         #header:hover>.backdrop, #header:active>.backdrop{
 
             filter: blur(2em) saturate(0.2);
         }
         #header>.socialLink{
             transition: visibility 1s, opacity 0.2s linear;
-            visibility: hidden;
-            opacity: 0;
+            visibility: visible;
+            opacity: 1;
         }
         
         #header:hover>h1, #header:active>h1{
@@ -147,8 +144,8 @@
             visibility: visible;
         }
         #header:hover>span,  #header:active>span{
-            visibility: hidden;
-            opacity: 0;
+            visibility: visible;
+            opacity: 1;
         }
         #header:hover>.socialLink, #header:active>.socialLink{
             display:inline;
@@ -179,6 +176,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThreeDifferentTribes</title>
+    <script>
+        window.addEventListener('load', function () {
+        document.body.style.display = "block";
+        })
+    </script>
 </head>
 <body class="dark background">
     <div id="nav" class="dark forground"></div>
@@ -191,9 +193,9 @@
             <div class="imgWrap">
                 <img src="./tdt-logo.png" alt="TDT">
                 
-            </div><br><br><br><br><span>MASK YOUR FACE - TO BE YOURSELF</span><br><br><br>
+            </div><br><br><br><br><br><br><br>
         <h1>ThreeDifferentTribes</h1>
-        
+        <span>MASK YOUR FACE - TO BE YOURSELF</span><br><br>
         <a href="https://discord.gg/y3vSx8pt4w" class="socialLink discord">Discord</a>
         <a href="https://www.youtube.com/channel/UCkMhMcn0ei_ecWNKGCYRmAA" class="socialLink youtube">YouTube</a>
         <a href="https://github.com/ThreeDifferentTribes" class="socialLink github">GitHub</a>
