@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        :root{
+            --main-background-color-dark: rgb(14, 15, 20);
+            --main-foreground-color-dark: rgb(23, 23, 25);
+            --main-background-color-light: rgb(179, 202, 223);
+            --main-foreground-color-light: rgb(16, 144, 204);
+            --main-font-color-dark: rgb(228, 235, 238);
+            --main-font-color-dark-highlight: #800962;
+            --main-font-color-light: rgb(34, 35, 36);
+            --main-font-color-light-highlight: #800962;
+        }
+        
+        .light.background{
+            background-color: var(--main-background-color-light);
+        }
+
+        .light.forground{
+            background-color: var(--main-foreground-color-light);
+        }
+
+
+        .dark.background{
+            background-color: var(--main-background-color-dark);
+        }
+
+        .dark.forground{
+            background-color: var(--main-foreground-color-dark);
+        }
+
+        body{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        #nav{
+            position: fixed;
+            padding: 10px 0px 10px 0px;
+            border-bottom: solid 0.2em rgba(240, 248, 255, 0.37);
+            overflow: hidden;
+            height:5vh;
+            top:0;
+            width: 100%;
+            z-index: 999;
+            box-shadow: 0px 0px 35px rgba(128, 9, 9, 1);
+        }
+        #header{
+            box-shadow: 0px 0px 15px rgb(15, 6, 6);
+            position: absolute;
+            padding: 10% 0px 10px 0px;
+            border-bottom: solid 0.2em rgba(240, 248, 255, 0.37);
+            border-top: solid 0.2em rgba(240, 248, 255, 0.37);
+            overflow: hidden;
+            height:70vh;
+            width: 100%;
+            text-align: center;
+            top:7vh;
+            
+            transition: background-image 5s;
+        }
+        #header>.imgWrap>{
+            display:block;
+            margin:auto;
+            height:80%;
+
+        }
+        #header>.backdrop{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-image: url("./loop-animation.gif");
+            filter: blur(3em) saturate(0.1);
+        }
+        #header>.imgWrap>img{
+            display:block;
+            margin:auto;
+            box-shadow: 0px 0px 5px 2px black;
+            border-radius: 100%;
+            height:300px;
+            transition: 1s;
+        }
+        #header>h1{
+            color:rgba(128, 9, 9, 1);
+            text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+        }
+        #header:hover>.imgWrap>img{
+            transform: scale(1.8);
+                box-shadow: 0px 0px 10px 5px rgb(48, 3, 3);
+                margin-bottom: 70px;
+
+        }
+        #header:hover>.backdrop{
+
+            filter: blur(2em) saturate(0.2);
+        }
+
+        #content{
+            overflow-y: scroll;
+            position: absolute;
+            min-height: 1000px;
+            width: 100%;
+        }
+        #footer{
+            position: fixed;
+            min-height: 5vh;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0px 2px 15px -2px rgba(128, 9, 9, 1);
+            border-top: solid 0.2em rgba(240, 248, 255, 0.37);
+            z-index: 999;
+        }
+
+       
+        
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreeDifferentTribes</title>
+</head>
+<body class="dark background">
+    <div id="nav" class="dark forground"></div>
+    
+    
+    <div id="content">
+        <div id="header" class="dark forground">
+            <div class="backdrop"></div>
+            <div class="imgWrap">
+                <img src="./tdt-logo.png" alt="TDT">
+                
+            </div><br><br>
+        <h1>ThreeDifferentTribes</h1>
+       </div>
+    <div id="footer" class="dark forground"> </div>
+</body>
+</html>
