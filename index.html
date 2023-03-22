@@ -4,7 +4,7 @@
     <style>
         :root{
             --main-background-color-dark: rgb(14, 15, 20);
-            --main-foreground-color-dark: rgb(23, 23, 25);
+            --main-foreground-color-dark: rgb(23, 23, 29);
             --main-background-color-light: rgb(179, 202, 223);
             --main-foreground-color-light: rgb(16, 144, 204);
             --main-font-color-dark: rgb(228, 235, 238);
@@ -12,7 +12,7 @@
             --main-font-color-light: rgb(34, 35, 36);
             --main-font-color-light-highlight: #800962;
         }
-        
+
         .light.background{
             background-color: var(--main-background-color-light);
         }
@@ -54,12 +54,15 @@
         .github{
             background-color: #4078c0;
         }
-        
+        html{
+            height: 100%;
+        }
         body{
             margin: 0;
             padding: 0;
             overflow: hidden;
             display: none;
+            height: 100%;
         }
         #nav{
             position: fixed;
@@ -72,20 +75,45 @@
             z-index: 999;
             box-shadow: 0px 0px 35px rgba(128, 9, 9, 1);
         }
+
+        #nav>span{
+            display: block;
+            margin: auto;
+            padding: auto;
+            color: aliceblue;
+            font-size: 2em;
+            text-align: center;
+            
+        }
         #header, .content_frame{
-            box-shadow: 0px 0px 15px rgb(15, 6, 6);
+            box-shadow: 0px 0px 25px 5px rgb(15, 6, 6);
             padding: 10% 0px 10px 0px;
             border-bottom: solid 0.2em rgba(240, 248, 255, 0.37);
             border-top: solid 0.2em rgba(240, 248, 255, 0.37);
             overflow: hidden;
-            height:90%;
+            min-height:70%;
             width: 100%;
-            margin-bottom: 5em;
+            margin-bottom: 25em;
+            position: relative;
+        }
+        .content_frame{
+            padding: 2% 0px 2% 0px;
+            min-height:90%;
         }
         #header{
             top:7vh;
             text-align: center;
             transition: background-image 5s;
+        }
+        .content_frame>:not(.backdrop){
+           color: aliceblue;
+           position: relative;
+           padding: 1% 2% 1% 2%;
+           min-height:50%;
+        }
+        .content_frame>h1{
+           color: aliceblue;
+           position: relative;
         }
         #header>.imgWrap>{
             display:block;
@@ -93,13 +121,16 @@
             height:50%;
             position: relative;
         }
-        #header>.backdrop{
+        .backdrop{
             position: absolute;
             width: 100%;
-            height: 100%;
             top: 0;
+        }
+        #header>.backdrop{
+           
             background-image: url("./loop-animation.gif");
             filter: blur(2em) saturate(0.2);
+            height: 100%;
         }
         #header>.imgWrap>img{
             position: relative;
@@ -155,11 +186,22 @@
         }
         #content{
             overflow-y: scroll;
-            position: absolute;
-
+            height: 100%;
+            position:relative;
             width: 100%;
             scrollbar-color: #2b2b2b #171717;
             scrollbar-width: thin;
+        }
+        body>.backdrop{
+            background-image: url("./content_background.jpg");
+            filter:blur(3em) saturate(0.2);
+            background-position: center top;
+            background-size: 100% auto;
+            height: 100vh;
+        }
+        .content_frame>.backdrop{
+            background-color: var(--main-foreground-color-dark);
+            height: 100%;
         }
         #footer{
             position: fixed;
@@ -180,21 +222,30 @@
     <script>
         window.addEventListener('load', function () {
         document.body.style.display = "block";
+
+        let content_frames = getContentFrames();
+        content_frames[content_frames.length-1].style.marginBottom  = "0px";
+
         })
+
+        function getContentFrames(){
+            return document.getElementsByClassName("content_frame");
+        }
     </script>
 </head>
 <body class="dark background">
-    <div id="nav" class="dark forground"></div>
-    
-    
+    <div id="nav" class="dark forground"><span>ThreeDifferentTribes</span></div>
+        
+    <div class="backdrop"></div>
     <div id="content">
+        
         <div id="header" class="dark forground">
             <div class="backdrop"></div>
 
             <div class="imgWrap">
                 <img src="./tdt-logo.png" alt="TDT">
                 
-            </div><br><br><br><br><br><br><br>
+            </div>
         <h1>ThreeDifferentTribes</h1>
         
         <a href="https://discord.gg/y3vSx8pt4w" class="socialLink discord">Discord</a>
@@ -202,10 +253,16 @@
         <a href="https://github.com/ThreeDifferentTribes" class="socialLink github">GitHub</a>
        </div>
        <div class="content_frame">
-            <h1>Projects</h1>
+        <div class="backdrop"></div>
+            <h1>NEWS & ANNOUNCEMENTS</h1>
        </div>
        <div class="content_frame">
-            <h1>Media</h1>
+        <div class="backdrop"></div>
+            <h1>PROJECTS</h1>
+       </div>
+       <div class="content_frame">
+        <div class="backdrop"></div>
+            <h1>MEDIA</h1>
         </div>
     </div>
        <div id="footer" class="dark forground"> 
